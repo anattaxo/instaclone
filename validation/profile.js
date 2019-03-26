@@ -54,12 +54,6 @@ module.exports = function validateProfileInput(data) {
     }
   }
 
-  if (!isEmpty(data.instagram)) {
-    if (!Validator.isURL(data.instagram)) {
-      errors.instagram = 'Not a valid URL';
-    }
-  }
-
   return {
     errors,
     isValid: isEmpty(errors)
