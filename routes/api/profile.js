@@ -9,8 +9,8 @@ const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 // Load Validation
 const validateProfileInput = require('../../validation/profile');
-const validateExperienceInput = require('../../validation/experience');
-const validateEducationInput = require('../../validation/education');
+// const validateExperienceInput = require('../../validation/experience');
+// const validateEducationInput = require('../../validation/education');
 
 
 // @route   GET api/profile
@@ -114,13 +114,13 @@ router.post(
     const profileFields = {};
     profileFields.user = req.user.id;
     if (req.body.handle) profileFields.handle = req.body.handle;
-    if (req.body.company) profileFields.company = req.body.company;
+    // if (req.body.company) profileFields.company = req.body.company;
     if (req.body.website) profileFields.website = req.body.website;
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
     if (req.body.status) profileFields.status = req.body.status;
-    if (req.body.githubusername)
-    profileFields.githubusername = req.body.githubusername;
+    // if (req.body.githubusername)
+    // profileFields.githubusername = req.body.githubusername;
 
     // Skills - Spilt into array
     if (typeof req.body.skills !== 'undefined') {
@@ -132,8 +132,7 @@ router.post(
     if (req.body.youtube) profileFields.social.youtube = req.body.youtube;
     if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
-    if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
-    if (req.body.instagram) profileFields.social.instagram = req.body.instagram;   
+    if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;  
     
     Profile.findOne({ user: req.user.id })
     .then(profile => {
@@ -167,7 +166,7 @@ router.post(
 // @route   POST api/profile/experience
 // @desc    Add experience to profile
 // @access  Private
-router.post(
+/* router.post(
   '/experience',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
@@ -196,11 +195,12 @@ router.post(
       profile.save().then(profile => res.json(profile));
     });
   }
-);
+); */
 
 // @route   POST api/profile/education
 // @desc    Add education to profile
 // @access  Private
+/*
 router.post(
   '/education',
   passport.authenticate('jwt', { session: false }),
@@ -233,6 +233,7 @@ router.post(
 );
 
 
+
 // @route   DELETE api/profile/experience/:exp_id
 // @desc    Delete experience from profile
 // @access  Private
@@ -263,6 +264,7 @@ router.delete(
   }
 );
 
+
 // @route   DELETE api/profile/education/:edu_id
 // @desc    Delete education from profile
 // @access  Private
@@ -286,6 +288,7 @@ router.delete(
       .catch(err => res.status(404).json(err));
   }
 );
+*/
 
 // @route   DELETE api/profile
 // @desc    Delete user and profile
