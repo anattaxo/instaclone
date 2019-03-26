@@ -4,7 +4,7 @@ img {
 
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background: url('http://media4.s-nbcnews.com/i/newscms/2014_10/229966/140305-coslog-selfie_4afc13d241e71b65f806752e7dcfb51c.jpg') no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
