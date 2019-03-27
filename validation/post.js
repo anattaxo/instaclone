@@ -4,14 +4,14 @@ const isEmpty = require('./is-empty');
 module.exports = function validatePostInput(data) {
   let errors = {};
 
-  data.text = !isEmpty(data.text) ? data.text : '';
+  data.image = !isEmpty(data.image) ? data.image : '';
 
-  if (!Validator.isLength(data.text, { min: 10, max: 300 })) {
-    errors.text = 'Post must be between 10 and 300 characters';
+  if (!Validator.isURL(data.image) && !Validator.contains('.jpg' || '.jpeg' || '.gif' || '.png' || '.mp4')) {
+    errors.image = 'Must be a valid URL with file extension: jpg, jpeg, gif, png or mp4';
   }
 
-  if (Validator.isEmpty(data.text)) {
-    errors.text = 'Text field is required';
+  if (Validator.isEmpty(data.image)) {
+    errors.image = 'Image field is required';
   }
 
   return {
